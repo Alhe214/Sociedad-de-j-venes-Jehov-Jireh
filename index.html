@@ -2,38 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sociedad de Jóvenes Jehová Jireh</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Sociedad de Jóvenes Jehová Jireh</h1>
-    <p class="versiculo">“Los muchachos se fatigan y se cansan, los jóvenes flaquean y caen; pero los que esperan a Jehová tendrán nuevas fuerzas...” <br> — Isaías 40:30-31</p>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 data-aos="fade-down">Sociedad de Jóvenes Jehová Jireh</h1>
+      <p class="versiculo" data-aos="fade-up">“Los muchachos se fatigan y se cansan, los jóvenes flaquean y caen; pero los que esperan a Jehová tendrán nuevas fuerzas...”<br> — Isaías 40:30-31</p>
+    </div>
   </header>
 
-  <section class="reto">
-    <h2>🔥 Reto Semanal</h2>
-    <p><strong>Tiempo Secreto con Dios:</strong> Dedica 10 minutos diarios a orar y leer un versículo. Escribe en tu diario lo que Dios te dice.</p>
+  <section class="retos" data-aos="fade-right">
+    <h2>🔥 Retos Semanales</h2>
+    <div class="grupos">
+      <div class="grupo">
+        <h3>Grupo #1</h3>
+        <p>Oración diaria al despertar + compartir un versículo.</p>
+      </div>
+      <div class="grupo">
+        <h3>Grupo #2</h3>
+        <p>Un día de ayuno y devocional escrito por miembro del grupo.</p>
+      </div>
+      <div class="grupo">
+        <h3>Grupo #3</h3>
+        <p>Evangelismo digital: compartir arte cristiano por redes.</p>
+      </div>
+      <div class="grupo">
+        <h3>Grupo #4</h3>
+        <p>Reto de bondad: hacer un acto de amor cristiano en secreto.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="devocional">
+  <section class="devocional" data-aos="fade-left">
     <h2>📖 Devocional Diario</h2>
     <p>“Dios está más cerca de lo que imaginas. Respira profundo y busca su paz.”</p>
+    <img src="https://source.unsplash.com/800x400/?bible,prayer" alt="Devocional" class="img-section">
   </section>
 
-  <section class="oracion">
+  <section class="oracion" data-aos="zoom-in">
     <h2>🙏 Peticiones de Oración</h2>
     <p>¿Tienes una petición? Déjala aquí, queremos orar por ti:</p>
     <a class="btn" href="https://forms.gle/tu-formulario" target="_blank">Enviar Petición</a>
   </section>
 
-  <footer>
+  <footer data-aos="fade-up">
     <p>&copy; 2025 Sociedad de Jóvenes Jehová Jireh</p>
     <div class="redes">
       <a href="https://wa.me/tu-grupo">WhatsApp</a> |
       <a href="#">Instagram</a>
     </div>
   </footer>
+
+  <script>AOS.init();</script>
 </body>
 </html>
