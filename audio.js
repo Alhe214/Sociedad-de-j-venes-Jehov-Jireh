@@ -1,5 +1,4 @@
-
-const audio = document.querySelector('audio');
+const audio = document.querySelector('Audio');
 document.addEventListener('click', () => {
   if (audio.paused) {
     audio.play();

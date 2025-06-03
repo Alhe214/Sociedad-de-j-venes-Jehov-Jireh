@@ -75,7 +75,7 @@ section {
 
 h2 {
   text-align: center;
-  color: #5e35b1;
+  color: #000000;
   margin-bottom: 30px;
   font-size: 2em;
 }
@@ -115,7 +115,7 @@ h2 {
   border: 2px solid transparent;
   transition: all 0.3s ease;
   text-decoration: none;
-  color: #5e35b1;
+  color: #000000;
   position: relative;
   overflow: hidden;
 }
