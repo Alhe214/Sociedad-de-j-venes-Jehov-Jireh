@@ -1,133 +1,203 @@
-/* Fuente general */
+/* Importar fuente */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f5f7fa;
+  background: #f8f6ff;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Hero/Header */
+/* Header Hero Animado */
 .hero {
-  background: url('https://source.unsplash.com/1600x900/?church,sky') no-repeat center center/cover;
-  height: 100vh;
   position: relative;
-  color: white;
+  height: 100vh;
+  /* CAMBIO AQUÍ: Fondo con degradado, imagen y efecto parallax */
+  background:url('Styles/Jovenes.jpg') center/cover no-repeat fixed; /* Añadido 'fixed' */
+  /* Asegúrate de que la ruta 'Styles/Jovenes.jpg' sea correcta desde donde está style.css */
+  /* Por ejemplo, si style.css está en la raíz y Jovenes.jpg está en la carpeta 'Styles', esta ruta es correcta. */
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  animation: gradientFade 10s ease infinite;
+  color: white;
 }
 
-.overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+@keyframes gradientFade {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero-content {
-  position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 2rem;
+  animation: slideIn 1.5s ease-out;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 6px #000;
+  font-size: 3em;
+  margin-bottom: 0.3em;
 }
 
 .versiculo {
+  font-size: 1.2em;
   font-style: italic;
-  font-size: 1.2rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 10px;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Secciones */
 section {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  background: white;
-  margin-bottom: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+  animation: sectionReveal 1s ease;
 }
 
-section h2 {
-  font-size: 2rem;
-  color: #1f3c88;
-  margin-bottom: 1rem;
+@keyframes sectionReveal {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
   text-align: center;
+  color: #5e35b1;
+  margin-bottom: 30px;
+  font-size: 2em;
 }
 
-.grupos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.grupo {
-  background: #e0f0ff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.grupo:hover {
-  transform: translateY(-5px);
-  background: #cce4ff;
-}
-
-/* Devocional */
-.img-section {
-  width: 100%;
-  border-radius: 15px;
-  margin-top: 1rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-}
-
-/* Oración */
-.oracion p {
-  margin-bottom: 1rem;
-}
-
+/* Botón principal */
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #1f3c88;
+  padding: 12px 30px;
+  background: #7e57c2;
   color: white;
-  border-radius: 8px;
   text-decoration: none;
+  border-radius: 30px;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: transform 0.3s, background 0.3s;
 }
 
 .btn:hover {
-  background: #162c5d;
+  background: #512da8;
+  transform: scale(1.05);
+}
+
+/* Grupos */
+.grupos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.grupo {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  flex: 1 1 220px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #5e35b1;
+  position: relative;
+  overflow: hidden;
+}
+
+.grupo::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(120deg, #7e57c2, #b39ddb);
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 0;
+  transition: top 0.4s ease;
+  border-radius: 15px;
+}
+
+.grupo:hover::before {
+  top: 0;
+}
+
+.grupo:hover {
+  color: white;
+  transform: translateY(-5px);
+}
+
+.grupo h3, .grupo p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Imagen de devocional */
+.img-section {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Slider */
+.slider {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  margin: 30px auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeSlide 1s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 2rem;
-  background: #1f3c88;
+  background: #311b92;
   color: white;
-  border-top: 4px solid #fff;
+  padding: 25px;
+  text-align: center;
+  font-size: 0.9em;
 }
 
 footer .redes a {
-  color: #ffcc00;
+  color: #ce93d8;
+  margin: 0 10px;
   text-decoration: none;
-  margin: 0 0.5rem;
-  font-weight: bold;
 }
 
 footer .redes a:hover {
@@ -136,10 +206,20 @@ footer .redes a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
+  .grupos {
+    flex-direction: column;
+    align-items: center;
   }
-  section {
-    padding: 2rem 1rem;
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .versiculo {
+    font-size: 1em;
+  }
+
+  .slider {
+    height: 250px;
   }
 }
